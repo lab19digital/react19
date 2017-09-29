@@ -1,0 +1,23 @@
+// Imports sass references only
+// Variables, mixins and functions
+@import 'web/common/scss/bootstrap';
+
+.__login {
+  .login-wrapper {
+    margin: 12.5vh auto;
+    width:50vw;
+    height: 75vh;
+    @include media-breakpoint-down(md){
+      width: 90vw;
+      padding: 10px;
+    }
+  }
+  .form {
+    width: 300px;
+    height: 200px;
+    @include media-breakpoint-down(md){
+      width: 100%;
+      height: 300px;
+    }
+  }
+}

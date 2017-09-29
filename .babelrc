@@ -1,0 +1,14 @@
+{
+  "presets": [
+    "es2015",
+    "stage-0",
+    "stage-1",
+    "stage-2",
+    "react",
+    "flow"
+  ],
+  "plugins": [["flow-runtime", {
+      "assert": true,
+      "annotate": true
+    }], "react-hot-loader/babel", "transform-decorators-legacy", "transform-class-properties", "transform-object-assign"]
+}
