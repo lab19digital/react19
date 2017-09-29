@@ -57,7 +57,7 @@ For example, you import the component styles into your component:
     
 This outputs something like
 
-  <div class="__loginComponent5a1da8"></div>
+    <div class="__loginComponent5a1da8"></div>
     
 
 Boilerplate by <a href="https://lab19digital.com" target="_blank">Lab19 Digital</a>.
