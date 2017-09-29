@@ -30,6 +30,7 @@ Why redux? Redux offers an opinionated way of managing state that makes an app e
 ### Other libraries
 The basics are covered above, but here are some recommended libraries to install:
 
+- <a href="https://github.com/ReactTraining/react-router">react-router</a> (probably will add this as hard dependency soon)
 - <a href="https://github.com/JedWatson/react-select">react-select</a> (custom typeahead/select)
 - <a href="https://github.com/airbnb/react-dates">react-dates</a> (datepicker by airbnb)
 - <a href="https://github.com/akiran/react-slick">react-slick</a> (port of Slick)
