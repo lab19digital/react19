@@ -31,9 +31,9 @@ Why redux? Redux offers an opinionated way of managing state that makes an app e
 #### !important note about CSS:
 Because Bootstrap relies on a lot of global css, this becomes difficult to use with css-modules. So we allow global css, but you can isolate css easily using a classname like this:
 
-  .__loginComponent {
-    color:blue;
-  }
+    .__loginComponent {
+      color:blue;
+    }
 
 Webpack looks for classnames prefixed like this and generates a hash, so you can attach a unique parent class to your components without worrying about collisions with other components, while still being able to use global bootstrap css within your components. 
 
