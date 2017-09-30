@@ -1,6 +1,5 @@
 import Immutable from "seamless-immutable";
 import { Types, States } from "../actionTypes";
-import { handleActionError } from "../actionHelpers";
 
 const initialState = Immutable({
   error: null,
@@ -9,14 +8,15 @@ const initialState = Immutable({
 });
 
 export default (state = initialState, action = {}) => {
+  const hasError = action.error;
   switch (action.type) {
     case Types.LOGIN_REQUEST:
-      return handleActionError(action, (err) => ({
-        ...initialState,
-        requesting: !err,
+      return {
+        ...state,
+        requesting: !hasError,
+        error: hasError && action.payload,
         success: false,
-        error: err
-      }));
+      };
     case Types.LOGIN_SUCCESS:
       return {
         ...initialState,

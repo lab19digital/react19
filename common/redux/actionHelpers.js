@@ -1,13 +1,6 @@
 /* @flow */
 import { Type } from './actionTypes';
 
-// The payload carries the error
-// when the error boolean is true
-export const handleActionError = ( action, result ) => {
-  const err = action.error ? action.payload : false;
-  return result( err );
-}
-
 // FSA compliance means that our action
 // carries a payload that supports an error
 // and a meta object if we need it

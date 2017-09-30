@@ -9,9 +9,9 @@ function* createLoginRequest( action ){
   	const user = yield call(Api.login, payload.username, payload.password);
     yield put(Actions.LOGIN_SUCCESS({ user: user }));
     alert(`Login success (${user.username})! See redux devtools in Chrome inspector.`);
-  } catch (err) {
-    alert(`Login error! ${err}`);
-    yield put(Actions.LOGIN_ERROR({}, Api.getError(err) ));
+  } catch (error) {
+    console.error(`Login error! ${err}`);
+    yield put(Actions.LOGIN_REQUEST( null, error ));
   }
 
 }

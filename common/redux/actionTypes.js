@@ -2,8 +2,16 @@
 
 // Define all our action types
 
-// Note: Avoid adding actions like
-// LOGIN_ERROR
+// NOTES on error handling
+// Avoid adding actions like LOGIN_ERROR
+// To send an error to your action, simply
+// omit the first argument and use the second
+// to pass an instance of an error.
+
+// Example:
+// const requestLogin = Actions.LOGIN_REQUEST;
+// const err = new Error('Incorrect password');
+// requestLogin(null, err);
 
 // Since we're using FSA compliant actions
 // we can specify the error in the payload
