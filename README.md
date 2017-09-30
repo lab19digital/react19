@@ -51,8 +51,18 @@ This outputs something like
 
     <div class="__loginComponent5a1da8"></div>
     
+## Installation
 
-### Other libraries
+Simply clone the project and use yarn or npm to install dependencies. 
+
+Available commands:
+
+    yarn run dev (webpack dev server)
+    yarn run build (webpack build for prod)
+    yarn run test (jest)
+
+
+## Other libraries
 Here are some recommended libraries to install for meeting a variety of project requirements:
 
 #### Animation and data
