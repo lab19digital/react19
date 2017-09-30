@@ -12,16 +12,17 @@ module.exports = function( env ){
     devServer: {
       hot:true,
       contentBase: path.join(__dirname, "dist"),
-      port: 9222,
+      port: 3000,
       historyApiFallback: {
         index: 'index.html'
       },
       publicPath: "/",
     },
+    devtool: "cheap-module-source-map",
     entry: [
       'babel-polyfill',
       'react-hot-loader/patch',
-      'webpack-dev-server/client?http://localhost:9222',
+      'webpack-dev-server/client?http://localhost:3000',
       'webpack/hot/only-dev-server',
       "./web/index.js",
       "./web/styles.js"

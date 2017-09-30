@@ -1,4 +1,5 @@
 /* @flow */
+import { Type } from './actionTypes';
 
 // The payload carries the error
 // when the error boolean is true

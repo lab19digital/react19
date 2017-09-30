@@ -1,5 +1,5 @@
 import { makeActions } from './actionHelpers';
-import { Type, Types } from './actionTypes';
+import { Types } from './actionTypes';
 
 /* @flow */
 

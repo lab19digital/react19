@@ -4,8 +4,11 @@ import {connect} from 'react-redux';
 import {reduxForm, Field } from 'redux-form';
 import {Actions} from '../../common/redux/actions';
 import styles from './styles.scss';
+import { DEVTOOLS_LINK } from '../constants';
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  login: state.login
+});
 
 class LoginFormComponent extends Component {
 	render(){
@@ -14,40 +17,35 @@ class LoginFormComponent extends Component {
 			<form onSubmit={handleSubmit} className={styles.__login}>
         <div className="d-flex flex-column justify-content-center login-wrapper">
           <div className="d-flex flex-column align-items-center">
-            <div>
-              <h2>React19</h2>
-              <ul>
-                <li>react</li>
-                <li>redux</li>
-                <li>redux-devtools</li>
-                <li>redux-form</li>
-                <li>redux-saga</li>
-                <li>Bootstrap 4 (with Flexbox support)</li>
-                <li>Webpack</li>
-                <li>Hot-reloading</li>
-              </ul>
-            </div>
-          </div>
-          <div className="d-flex flex-column align-items-center">
             <div className="d-flex form flex-column justify-content-around">
               <h5>Simple redux-form example</h5>
-      				<Field
-      					component="input"
-      					type="email"
-      					placeholder="Email"
-      					name="email"
-                className="form-control"
-      				/>
+              <p>Type in an email and password, to see some redux actions and saga in action.
+                Install <a href={DEVTOOLS_LINK} target="_blank">redux-devtools Chrome extension</a> to inspect the state.</p>
 
-      				<Field
-      					component="input"
-      					type="password"
-      					placeholder="Password"
-      					name="password"
-                className="form-control"
-      				/>
+                { ! this.props.login.success &&
+                  <div className="d-flex flex-column justify-content-around login-fields">
+            				<Field
+            					component="input"
+            					type="email"
+            					placeholder="Email"
+            					name="email"
+                      className="form-control"
+            				/>
+            				<Field
+            					component="input"
+            					type="password"
+            					placeholder="Password"
+            					name="password"
+                      className="form-control"
+            				/>
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                  </div>
+                }
 
-      				<button type="submit" className="btn btn-primary">Submit</button>
+              { this.props.login.success &&
+                <div className="alert alert-success">Login state transitioned to success!</div>
+              }
+
             </div>
           </div>
         </div>
@@ -56,6 +54,13 @@ class LoginFormComponent extends Component {
 	}
 }
 
+// Map the state so we can do stuff
+const ConnectedFormComponent = connect(mapStateToProps)(LoginFormComponent);
+
+const LoginForm = reduxForm({
+  form: 'login' // a unique identifier for this form
+})(ConnectedFormComponent);
+
 const LoginFormContainer = (props) => (
   <LoginForm onSubmit={(vals) => props.requestLogin({
       username: vals.email,
@@ -63,10 +68,8 @@ const LoginFormContainer = (props) => (
     }) } />
 );
 
-const LoginForm = reduxForm({
-  form: 'login' // a unique identifier for this form
-})(LoginFormComponent);
+const mapDispatchToProps = ({
+  requestLogin: Actions.LOGIN_REQUEST
+});
 
-export default connect(mapStateToProps, {
-	requestLogin: Actions.LOGIN_REQUEST
-})(LoginFormContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginFormContainer);

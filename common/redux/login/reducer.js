@@ -14,6 +14,7 @@ export default (state = initialState, action = {}) => {
       return handleActionError(action, (err) => ({
         ...initialState,
         requesting: !err,
+        success: false,
         error: err
       }));
     case Types.LOGIN_SUCCESS:
