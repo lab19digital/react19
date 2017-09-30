@@ -41,7 +41,7 @@ This is only if you're intending to separate your scss files per component, rath
 
 For example, you import the component styles into your component:
 
-  import loginStyles from './login.component.scss';
+    import loginStyles from './login.component.scss';
     
     const loginComponent = () => (
       <div className={styles.__loginComponent}></div>
